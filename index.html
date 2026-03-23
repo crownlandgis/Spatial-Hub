@@ -59,14 +59,15 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#fff;border:2px solid var(--cl-accent);padding:8px 10px;border-radius:6px;z-index:9999}
 
-    /* ============= HERO (retain look & feel, add CLSS.png, remove beach) ============= */
+    /* ============= HERO (retain look & feel) ============= */
     .hero{
       position:relative; isolation:isolate;
       min-height:320px;
       display:flex; align-items:center;
       color:#fff; background:#18384e;
     }
-    /* Beach image removed – keep the gradient only for contrast */
+    /* Remove beach photo; keep gradient for contrast */
+    .hero::before{ content:none; }
     .hero::after{
       content:""; position:absolute; inset:0;
       background:linear-gradient(180deg, rgba(0,60,113,.65) 0%, rgba(0,60,113,.55) 60%, rgba(0,60,113,.40) 100%);
@@ -80,17 +81,19 @@
     .btn--primary{background:#0096D6;color:#fff;box-shadow:var(--shadow-soft)}
     .btn--ghost{background:transparent;border:2px solid #fff;color:#fff}
 
-    /* --- NEW: overlay container + responsive hero PNG --- */
+    /* ===== NEW: Top-right hero image (CLSS.png) at half size ===== */
     .hero__overlay{
       position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      pointer-events:none;
-      padding:32px 16px;
+      display:flex;
+      align-items:flex-start;     /* top */
+      justify-content:flex-end;   /* right */
+      pointer-events:none;        /* don't block buttons/links */
+      padding:16px;               /* offset from edges */
     }
     .hero__logo{
-      width:min(820px, 78vw); /* scale nicely across devices */
+      width:min(410px, 39vw);     /* half previous size, responsive */
       height:auto;
-      filter:drop-shadow(0 8px 16px rgba(0,0,0,.30)); /* subtle pop */
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.30));
     }
 
     /* ============= Sections / Headings ============= */
@@ -147,11 +150,11 @@
     </div>
   </header>
 
-  <!-- ===== HERO (same style, add CLSS.png) ===== -->
+  <!-- ===== HERO (same look, CLSS.png top-right at half size) ===== -->
   <section class="hero" role="region" aria-label="Welcome banner">
-    <!-- New: overlayed PNG logo -->
+    <!-- Top-right hero image -->
     <div class="hero__overlay" aria-hidden="true">
-      <img class="hero__logo" src="assets/CLSS.png" alt="">
+      <img class="hero__logo" src="assets/CLSS.png" alt="" />
     </div>
 
     <div class="hero__inner container">
@@ -159,8 +162,8 @@
       <p>ArcGIS Online Applications, Reporting Tools &amp; Dashboards<br />Accessible with industry or any generic AGOL account</p>
       <div class="cta" role="group" aria-label="Key actions">
         <a class="btn btn--primary" href="#apps">Browse Applications</a>
-        <a class="btn btn--ghost"   href="#support">Contact Support</a>
-        <a class="btn btn--ghost"   href="#data">Data Catalogue</a>
+        <a class="btn btn--ghost" href="#support">Contact Support</a>
+        <a class="btn btn--ghost" href="#data">Data Catalogue</a>
       </div>
     </div>
   </section>
@@ -231,7 +234,7 @@
           <span class="badge" aria-label="Live system">Live</span>
         </article>
 
-        <!-- Remaining static cards -->
+        <!-- Remaining 12 static cards (icon: review.jpg) -->
         <article class="card" role="listitem">
           <div class="card__media"><img src="assets/icons/review.jpg" alt="MIDO icon" /></div>
           <div class="card__body"><h3 class="card__title">MIDO</h3><p class="card__text"></p></div>
@@ -308,7 +311,9 @@
 
     <section id="support" class="container" aria-label="Support">
       <div class="section-header"><h2>Support</h2></div>
-      <p>If you need access or encounter issues, contact <a href="mailto:spatial.support@example.nsw.gov.au">spatial.support@example.nsw.gov.au</a>.</p>
+      <p>If you need access or encounter issues, contact
+        <a href="mailto:spatial.support@example.nsw.gov.au">spatial.support@example.nsw.gov.au</a>.
+      </p>
     </section>
   </main>
 
@@ -327,3 +332,4 @@
   </footer>
 </body>
 </html>
+``
