@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en-AU">
 <head>
@@ -120,3 +121,136 @@
       padding:14px 16px;
       flex-wrap:wrap
     }
+    .footer__brand{display:flex;align-items:center;gap:8px;font-weight:800}
+    .footer__brand img{height:26px}
+    .footer__links a{color:var(--cl-muted);margin-right:14px}
+  </style>
+</head>
+
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar__inner container">
+    <div class="brand">
+      <img src="assets/nsw-logo.svg" alt="NSW Government logo" />
+      <span>Crown Land Spatial Hub</span>
+    </div>
+    <nav class="nav">
+      <a href="#apps">Applications</a>
+      <a href="#updates">Updates</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__inner container">
+    <h1>Crown Land Spatial HUB</h1>
+    <p>
+      ArcGIS Online Applications, Reporting Tools &amp; Dashboards<br>
+      Accessible with industry or any generic AGOL account
+    </p>
+    <div class="cta">
+      <a class="btn btn--primary" href="#apps">Browse Applications</a>
+      <a class="btn btn--ghost" href="#support">Contact Support</a>
+      <a class="btn btn--ghost" href="#data">Data Catalogue</a>
+    </div>
+  </div>
+</section>
+
+<main id="main" tabindex="-1">
+  <section id="apps" class="container">
+    <div class="section-header"><h2>Operational Applications</h2></div>
+
+    <div class="grid">
+      <!-- ORBiS Training -->
+      <article class="card">
+        <div class="card__media">
+          <img src="assets/icons/OrbisLogo.png" alt="ORBiS Training icon">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">ORBiS – Training Database</h3>
+          <p class="card__text">Simulation environment for permits and assessments.</p>
+        </div>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175" target="_blank">Open ORBiS Training</a>
+        </div>
+        <span class="badge badge--training">Training</span>
+      </article>
+
+      <!-- ORBiS Production -->
+      <article class="card">
+        <div class="card__media">
+          <img src="assets/icons/OrbisLogo.png" alt="ORBiS icon">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">ORBiS – Production</h3>
+          <p class="card__text">Primary Crown Land Resource Information System.</p>
+        </div>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c" target="_blank">Launch ORBiS</a>
+        </div>
+        <span class="badge">Live</span>
+      </article>
+
+      <!-- CLASSIFY -->
+      <article class="card">
+        <div class="card__media">
+          <img src="assets/icons/Classify.png" alt="CLASSIFY icon">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">CLASSIFY – Desktop</h3>
+          <p class="card__text">Crown Land Asset Information System portal.</p>
+        </div>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00/explore" target="_blank">Open CLASSIFY</a>
+        </div>
+        <span class="badge">Live</span>
+      </article>
+
+      <!-- Incendo (FIXED LINK) -->
+      <article class="card">
+        <div class="card__media">
+          <img src="assets/icons/Incendo.png" alt="Incendo icon">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Incendo</h3>
+          <p class="card__text">Bushfire management system for Crown Land.</p>
+        </div>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3/explore" target="_blank">Open Incendo</a>
+        </div>
+        <span class="badge">Live</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="support" class="container">
+    <div class="section-header"><h2>Support</h2></div>
+    <p>
+      Contact
+      <a href="mailto:crown.applications@crownland.nsw.gov.au">
+        crown.applications@crownland.nsw.gov.au
+      </a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <img src="assets/nsw-logo.svg" alt="NSW Government logo">
+      <span>Crown Land Spatial Hub</span>
+    </div>
+    <div class="footer__links">
+      <a href="#">Accessibility</a>
+      <a href="#">Privacy</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
