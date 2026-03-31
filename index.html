@@ -6,330 +6,117 @@
   <meta name="theme-color" content="#003C71" />
   <title>Crown Land Spatial Hub</title>
 
-  <!--
-    Spatial HUB – Standalone HTML for embedding via ArcGIS Hub Iframe card
-    Author: Crown Land Spatial Services
-    Notes:
-      • Replace placeholder links (#) with your real app URLs.
-      • Replace image paths in the HERO and icons with your hosted assets (WebP/JPG/PNG).
-      • Colours use NSW-friendly palette; adjust variables as needed.
-  -->
-
   <style>
-    /* ============= CSS Variables (Brand Palette) ============= */
     :root{
-      --cl-primary:#003C71;   /* Deep navy */
-      --cl-accent:#0096D6;    /* Bright blue (buttons/links) */
-      --cl-success:#2E7D32;   /* Green badges (unused here but kept) */
-      --cl-bg:#F5F7FA;        /* Page background */
-      --cl-surface:#FFFFFF;   /* Cards */
-      --cl-text:#1F2A37;      /* Headings */
-      --cl-muted:#6B7280;     /* Body text */
-      --cl-border:#E5E7EB;    /* Subtle borders */
+      --cl-primary:#003C71;
+      --cl-accent:#0096D6;
+      --cl-success:#2E7D32;
+      --cl-bg:#F5F7FA;
+      --cl-surface:#FFFFFF;
+      --cl-text:#1F2A37;
+      --cl-muted:#6B7280;
+      --cl-border:#E5E7EB;
       --radius:12px;
       --shadow:0 10px 24px rgba(0,0,0,.10);
       --shadow-soft:0 6px 16px rgba(0,0,0,.08);
       --maxw:1200px;
     }
 
-    /* ============= Base / Reset ============= */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font:16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
       color:var(--cl-text);
       background:var(--cl-bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
     img{max-width:100%;height:auto;display:block}
     a{color:var(--cl-accent);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:16px}
 
-    /* ============= Header / Top Navigation (original style) ============= */
     .topbar{background:#fff;border-bottom:1px solid var(--cl-border)}
     .topbar__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--cl-primary)}
-    .brand img{height:28px;width:auto}
+    .brand img{height:28px}
     .nav{display:flex;gap:16px;flex-wrap:wrap}
-    .nav a{color:var(--cl-text);font-weight:600;border-bottom:2px solid transparent;padding-bottom:2px}
+    .nav a{color:var(--cl-text);font-weight:600;border-bottom:2px solid transparent}
     .nav a:hover{border-color:var(--cl-accent)}
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#fff;border:2px solid var(--cl-accent);padding:8px 10px;border-radius:6px;z-index:9999}
 
-    /* ============= HERO (retain look & feel) ============= */
+    .skip-link{position:absolute;left:-9999px}
+    .skip-link:focus{left:16px;top:16px;background:#fff;border:2px solid var(--cl-accent);padding:8px}
+
     .hero{
-      position:relative; isolation:isolate;
       min-height:320px;
-      display:flex; align-items:center;
-      color:#fff; background:#18384e;
-    }
-    /* Remove beach photo; keep gradient for contrast */
-    .hero::before{ content:none; }
-    .hero::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(0,60,113,.65) 0%, rgba(0,60,113,.55) 60%, rgba(0,60,113,.40) 100%);
-      z-index:-1;
+      display:flex;
+      align-items:center;
+      color:#fff;
+      background:linear-gradient(
+        180deg,
+        rgba(0,60,113,.65),
+        rgba(0,60,113,.4)
+      );
     }
     .hero__inner{padding:64px 16px}
     .hero h1{font-size:42px;line-height:1.15;margin:0 0 10px}
     .hero p{margin:0 0 18px;color:#E8EEF5}
+
     .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none}
-    .btn--primary{background:#0096D6;color:#fff;box-shadow:var(--shadow-soft)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;font-weight:700}
+    .btn--primary{background:#0096D6;color:#fff}
     .btn--ghost{background:transparent;border:2px solid #fff;color:#fff}
 
-    /* ===== NEW: Top-right hero image (CLSS.png) at half size ===== */
-    .hero__overlay{
-      position:absolute; inset:0;
-      display:flex;
-      align-items:flex-start;     /* top */
-      justify-content:flex-end;   /* right */
-      pointer-events:none;        /* don't block buttons/links */
-      padding:16px;               /* offset from edges */
-    }
-    .hero__logo{
-      width:min(410px, 39vw);     /* half previous size, responsive */
-      height:auto;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,.30));
-    }
-
-    /* ============= Sections / Headings ============= */
     section{padding:26px 0}
-    .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .section-header{margin-bottom:12px}
     .section-header h2{margin:0;font-size:22px;color:var(--cl-primary)}
 
-    /* ============= Grid & Cards (original style) ============= */
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
-    @media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr)} }
-    @media (max-width:800px){  .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:520px){  .grid{grid-template-columns:1fr} }
+    @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}}
 
-    .card{position:relative;background:var(--cl-surface);border:1px solid var(--cl-border);border-radius:var(--radius);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;min-height:260px}
-    .card__media{display:flex;align-items:center;justify-content:center;height:120px;background:#F8FAFC;border-bottom:1px solid var(--cl-border);border-top-left-radius:var(--radius);border-top-right-radius:var(--radius)}
-    .card__media img{max-height:70px;width:auto}
+    .card{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--cl-border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      min-height:260px
+    }
+    .card__media{
+      height:120px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#F8FAFC;
+      border-bottom:1px solid var(--cl-border)
+    }
+    .card__media img{max-height:70px}
     .card__body{padding:12px 14px 6px}
     .card__title{margin:0 0 6px;font-size:16.5px}
     .card__text{margin:0;color:var(--cl-muted);font-size:14.5px}
     .card__actions{padding:10px 14px 14px}
-    .card .btn{font-size:14px;padding:8px 10px}
 
-    .badge{position:absolute;top:10px;left:10px;background:#DBEAFE;color:#1E3A8A;border-radius:9999px;padding:3px 8px;font-size:12px;font-weight:800}
+    .badge{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#DBEAFE;
+      color:#1E3A8A;
+      border-radius:9999px;
+      padding:3px 8px;
+      font-size:12px;
+      font-weight:800
+    }
     .badge--training{background:#FEF3C7;color:#92400E}
 
-    /* ============= Footer (original style) ============= */
-    footer{margin-top:22px;background:#F1F5F9;border-top:1px solid var(--cl-border)}
-    .footer__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px}
-    .footer__brand{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--cl-text)}
-    .footer__brand img{height:26px}
-    .footer__links a{color:var(--cl-muted);margin-right:14px}
-    .footer__links a:hover{color:var(--cl-primary)}
-
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
-</head>
-
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- ===== Top Navigation (older/original headers) ===== -->
-  <header class="topbar" role="banner">
-    <div class="topbar__inner container">
-      <div class="brand">
-        <img src="assets/nsw-logo.svg" alt="NSW Government logo" />
-        <span>Crown Land Spatial Hub</span>
-      </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#apps">Applications</a>
-        <a href="#updates">Updates</a>
-        <a href="#support">Support</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===== HERO (same look, CLSS.png top-right at half size) ===== -->
-  <section class="hero" role="region" aria-label="Welcome banner">
-    <!-- Top-right hero image -->
-    <div class="hero__overlay" aria-hidden="true">
-      <img class="hero__logo" src="assets/CLSS.png" alt="" />
-    </div>
-
-    <div class="hero__inner container">
-      <h1>Crown Land Spatial HUB</h1>
-      <p>ArcGIS Online Applications, Reporting Tools &amp; Dashboards<br />Accessible with industry or any generic AGOL account</p>
-      <div class="cta" role="group" aria-label="Key actions">
-        <a class="btn btn--primary" href="#apps">Browse Applications</a>
-        <a class="btn btn--ghost" href="#support">Contact Support</a>
-        <a class="btn btn--ghost" href="#data">Data Catalogue</a>
-      </div>
-    </div>
-  </section>
-
-  <main id="main" tabindex="-1">
-    <section id="apps" class="container">
-      <div class="section-header"><h2>Operational Applications</h2></div>
-
-      <!-- ===== SINGLE GRID: first 4 fixed cards, then 12 static cards ===== -->
-      <div class="grid" role="list">
-        <!-- Fixed Card 1 -->
-        <article class="card" role="listitem">
-          <div class="card__media">
-            <img src="assets/icons/OrbisLogo.png" alt="ORBiS Training icon" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">ORBiS – Training Database</h3>
-            <p class="card__text">Capture permits, assets and assessments in a simulation environment.</p>
-          </div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175" target="_blank" rel="noopener">Open ORBiS Training</a>
-          </div>
-          <span class="badge badge--training" aria-label="Training environment">Training</span>
-        </article>
-
-        <!-- Fixed Card 2 -->
-        <article class="card" role="listitem">
-          <div class="card__media">
-            <img src="assets/icons/OrbisLogo.png" alt="ORBiS icon" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">ORBiS – Production</h3>
-            <p class="card__text">Primary Crown Land Resource Information System for operational workflows.</p>
-          </div>
-          <div class="card__actions">
-           
-<a class="btn btn--primary" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c" target="_blank" rel="noopener">Launch ORBiS</a>
-          </div>
-          <span class="badge" aria-label="Live system">Live</span>
-        </article>
-
-        <!-- Fixed Card 3 -->
-        <article class="card" role="listitem">
-          <div class="card__media">
-            <img src="assets/icons/Classify.png" alt="CLASSIFY icon" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">CLASSIFY – Desktop</h3>
-            <p class="card__text">Crown Land Asset Information System (CLASSIFY) desktop portal</p>
-          </div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00/explore" target="_blank" rel="noopener">Open CLASSIFY</a>
-            
-          </div>
-          <span class="badge" aria-label="Live system">Live</span>
-        </article>
-
-        <!-- Fixed Card 4 -->
-        <article class="card" role="listitem">
-          <div class="card__media">
-            <img src="assets/icons/Incendo.png" alt="Incendo icon" />
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">Incendo</h3>
-            <p class="card__text">Bushfire management system for Crown Land</p>
-          </div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https:trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3/explore" target="_blank" rel="noopener">Open Incendo</a>
-          </div>
-          <span class="badge" aria-label="Live system">Live</span>
-        </article>
-
-        <!-- Remaining 12 static cards (icon: review.jpg) -->
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="MIDO icon" /></div>
-          <div class="card__body"><h3 class="card__title">MIDO</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Crown Land Native Title icon" /></div>
-          <div class="card__body"><h3 class="card__title">Crown Land Native Title</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="CrownView Mini icon" /></div>
-          <div class="card__body"><h3 class="card__title">CrownView Mini</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Council Crown Land Manager Reserves Portal icon" /></div>
-          <div class="card__body"><h3 class="card__title">Council Crown Land Manager Reserves Portal</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Crownland Conservation Tool icon" /></div>
-          <div class="card__body"><h3 class="card__title">Crownland Conservation Tool</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Crown Land Emergency Response Toolkit icon" /></div>
-          <div class="card__body"><h3 class="card__title">Crown Land Emergency Response Toolkit</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="2025 Client Enquiries icon" /></div>
-          <div class="card__body"><h3 class="card__title">2025 Client Enquiries</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Crown Land Disaster Recovery Dashboard icon" /></div>
-          <div class="card__body"><h3 class="card__title">Crown Land Disaster Recovery Dashboard</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Crown Land Housing Assessment Dashboard icon" /></div>
-          <div class="card__body"><h3 class="card__title">Crown Land Housing Assessment Dashboard</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Contamination by Office Dashboard icon" /></div>
-          <div class="card__body"><h3 class="card__title">Contamination by Office Dashboard</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Contamination by Region Dashboard icon" /></div>
-          <div class="card__body"><h3 class="card__title">Contamination by Region Dashboard</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card__media"><img src="assets/icons/review.jpg" alt="Illegal Dumping Dashboard icon" /></div>
-          <div class="card__body"><h3 class="card__title">Illegal Dumping Dashboard</h3><p class="card__text"></p></div>
-          <div class="card__actions"><a class="btn btn--primary" href="#" target="_blank" rel="noopener">Open</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="support" class="container" aria-label="Support">
-      <div class="section-header"><h2>Support</h2></div>
-      <p>If you need access or encounter issues, contact
-        <a href="mailto:crown.applications@crownland.nsw.gov.au">crown.applications@crownland.nsw.gov.au</a>.
-      </p>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    <div class="footer__inner container">
-      <div class="footer__brand">
-        <img src="assets/nsw-logo.svg" alt="NSW Government logo" />
-        <span>Crown Land Spatial Hub</span>
-      </div>
-      <div class="footer__links">
-        <a href="#">Accessibility</a>
-        <a href="#">Privacy</a>
-        <a href="#">Disclaimer</a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+    footer{background:#F1F5F9;border-top:1px solid var(--cl-border)}
+    .footer__inner{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      flex-wrap:wrap
+    }
