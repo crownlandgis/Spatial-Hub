@@ -28,14 +28,12 @@
     }
 
     img{max-width:100%;display:block}
-    a{text-decoration:none;color:var(--cl-accent)}
+    a{text-decoration:none}
     .container{max-width:var(--maxw);margin:auto;padding:0 16px}
 
     .topbar{background:#fff;border-bottom:1px solid var(--cl-border)}
     .topbar__inner{display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--cl-primary)}
-    .brand img{height:28px}
-    .nav a{margin-left:16px;font-weight:600;color:var(--cl-text)}
 
     .hero{
       min-height:320px;
@@ -46,9 +44,7 @@
     }
     .hero__inner{padding:64px 16px}
     .hero h1{font-size:42px;margin:0 0 10px}
-    .hero p{color:#E8EEF5}
 
-    section{padding:26px 0}
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
     @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -64,6 +60,7 @@
       min-height:260px;
       position:relative;
     }
+
     .card__media{
       height:120px;
       display:flex;
@@ -72,11 +69,24 @@
       border-bottom:1px solid var(--cl-border);
       background:#F8FAFC;
     }
+
     .card__media img{max-height:70px}
+
     .card__body{padding:12px 14px}
     .card__title{margin:0 0 6px;font-size:16.5px}
     .card__text{color:var(--cl-muted);font-size:14.5px}
+
     .card__actions{padding:10px 14px 14px}
+
+    .btn{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:6px;
+      font-size:13px;
+      font-weight:700;
+      background:#0096D6;
+      color:#fff;
+    }
 
     .badge{
       position:absolute;
@@ -90,8 +100,12 @@
       color:#1E3A8A;
     }
     .badge + .badge{top:36px}
-    .badge--training{background:#FEF3C7;color:#92400E}
-    .badge--review{background:#FEF3C7;color:#92400E}
+
+    .badge--training,
+    .badge--review{
+      background:#FEF3C7;
+      color:#92400E;
+    }
   </style>
 </head>
 
@@ -100,20 +114,16 @@
 <header class="topbar">
   <div class="topbar__inner container">
     <div class="brand">
-      <img src="assets/nsw-logo.svg" alt="NSW Government"/>
-      <span>Crown Land Spatial Hub</span>
+      <img src="assets/nsw-logo.svg" alt="NSW Government logo">
+      Crown Land Spatial Hub
     </div>
-    <nav class="nav">
-      <a href="#apps">Apps</a>
-      <a href="#support">Support</a>
-    </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero__inner container">
     <h1>Crown Land Spatial HUB</h1>
-    <p>ArcGIS Online Applications, Reporting Tools &amp; Dashboards</p>
+    <p>ArcGIS Online Applications, Reporting Tools & Dashboards</p>
   </div>
 </section>
 
@@ -122,86 +132,168 @@
 
   <div class="grid">
 
-    <!-- ORBiS – Training (unchanged) -->
+    <!-- ORBiS Training -->
     <article class="card">
       <div class="card__media">
-        <img src="assets/icons/OrbisLogo.png" alt="ORBiS"/>
+        <img src="assets/icons/OrbisLogo.png" alt="ORBiS">
       </div>
       <div class="card__body">
         <h3 class="card__title">ORBiS – Training Database</h3>
         <p class="card__text">Simulation environment for permits and assessments.</p>
       </div>
       <div class="card__actions">
-        <a href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175">Open</a>
+        <a class="btn" href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175">Open</a>
       </div>
       <span class="badge badge--training">Training</span>
     </article>
 
-    <!-- Production apps -->
+    <!-- ORBiS Production -->
     <article class="card">
       <div class="card__media">
-        <img src="assets/icons/OrbisLogo.png" alt="ORBiS"/>
+        <img src="assets/icons/OrbisLogo.png" alt="ORBiS">
       </div>
       <div class="card__body">
         <h3 class="card__title">ORBiS – Production</h3>
-        <p class="card__text">Primary Crown Land Resource Information System.</p>
       </div>
       <div class="card__actions">
-        <a href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c">Open</a>
+        <a class="btn" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c">Open</a>
       </div>
       <span class="badge">Production</span>
     </article>
 
+    <!-- CLASSIFY -->
     <article class="card">
       <div class="card__media">
-        <img src="assets/icons/Classify.png" alt="CLASSIFY"/>
+        <img src="assets/icons/Classify.png" alt="CLASSIFY">
       </div>
       <div class="card__body">
         <h3 class="card__title">CLASSIFY – Desktop</h3>
       </div>
       <div class="card__actions">
-        <a href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00/exploreOpen">Open</a>
+        <a class="btn" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00/exploreOpen">Open</a>
       </div>
       <span class="badge">Production</span>
     </article>
 
+    <!-- Incendo -->
     <article class="card">
       <div class="card__media">
-        <img src="assets/icons/Incendo.png" alt="Incendo"/>
+        <img src="assets/icons/Incendo.png" alt="Incendo">
       </div>
       <div class="card__body">
         <h3 class="card__title">Incendo</h3>
-        <p class="card__text">Bushfire management system for Crown Land.</p>
       </div>
       <div class="card__actions">
-        <a href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3/exploreOpen">Open</a>
+        <a class="btn" href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3/exploreOpen">Open</a>
       </div>
       <span class="badge">Production</span>
     </article>
 
-    <!-- Under review apps (Production + Under Review) -->
+    <!-- Under Review Apps -->
+    <!-- Pattern repeated for ALL -->
 
-    <!-- Repeat pattern -->
+    <!-- MIDO -->
     <article class="card">
-      <div class="card__media"><img src="assets/icons/review.jpg" alt="Under review"/></div>
+      <div class="card__media">
+        <img src="assets/icons/review.jpg" alt="Under Review">
+      </div>
       <div class="card__body"><h3 class="card__title">MIDO</h3></div>
-      <div class="card__actions"><a href="https://trade.hub.arcgis.com/apps/REVIEW_MIDO/exploreOpen">Open</a></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
       <span class="badge">Production</span>
       <span class="badge badge--review">Under Review</span>
     </article>
 
     <article class="card">
-      <div class="card__media"><img src="assets/icons/review.jpg" alt="Under review"/></div>
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
       <div class="card__body"><h3 class="card__title">Crown Land Native Title</h3></div>
-      <div class="card__actions"><a href="https://trade.hub.arcgis.com/apps/REVIEW_NATIVE_TITLE/exploreOpen">Open</a></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
       <span class="badge">Production</span>
       <span class="badge badge--review">Under Review</span>
     </article>
 
-    <!-- (remaining under-review cards follow identical pattern) -->
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">CrownView Mini</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Council Crown Land Manager Reserves Portal</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Crownland Conservation Tool</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Crown Land Emergency Response Toolkit</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">2025 Client Enquiries</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Crown Land Disaster Recovery Dashboard</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Crown Land Housing Assessment Dashboard</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Contamination by Office Dashboard</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Contamination by Region Dashboard</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
+
+    <article class="card">
+      <div class="card__media"><img src="assets/icons/review.jpg"></div>
+      <div class="card__body"><h3 class="card__title">Illegal Dumping Dashboard</h3></div>
+      <div class="card__actions"><a class="btn" href="#">Open</a></div>
+      <span class="badge">Production</span>
+      <span class="badge badge--review">Under Review</span>
+    </article>
 
   </div>
 </main>
 
 </body>
 </html>
+``
