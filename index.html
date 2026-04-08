@@ -21,25 +21,26 @@
   --maxw:1200px;
 }
 
+*{box-sizing:border-box}
 
-.hero p{
-  margin: 0;
+body{
+  margin:0;
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background:var(--cl-bg);
+  color:var(--cl-text);
 }
-``
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      :var(--cl-bg);
-      color:var(--cl-text);
-    }
+img{max-width:100%;display:block}
+a{text-decoration:none}
 
-    img{max-width:100%;display:block}
-    a{text-decoration:none}
-    .container{max-width:var(--maxw);margin:auto;padding:0 16px}
+.container{
+  max-width:var(--maxw);
+  margin:auto;
+  padding:0 16px;
+}
 
-   .topbar__inner{
+/* Top bar */
+.topbar__inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -65,385 +66,88 @@
   color:var(--cl-text);
 }
 
-    .hero{
-      min-height:320px;
-      display:flex;
-      align-items:center;
-      color:#fff;
-      :linear-gradient(180deg, rgba(0,60,113,.65), rgba(0,60,113,.4));
-    }
-    .hero__inner{padding:64px 16px}
-    .hero h1{font-size:42px;margin:0 0 10px}
-    .hero p{color:#E8EEF5}
+/* HERO */
+.hero{
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:linear-gradient(
+    180deg,
+    rgba(0,60,113,.65),
+    rgba(0,60,113,.4)
+  );
+}
 
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:8px;
-      font-weight:700;
-      :#0096D6;
-      color:#fff;
-      margin-right:10px;
-    }
+.hero__inner{padding:64px 16px}
+.hero h1{font-size:42px;margin:0 0 10px}
+.hero p{margin:0;color:#E8EEF5}
 
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
-    @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:520px){.grid{grid-template-columns:1fr}}
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:700;
+  background:#0096D6;
+  color:#fff;
+  margin-right:10px;
+}
 
-    .card{
-      background:#fff;
-      border:1px solid var(--cl-border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow-soft);
-      display:flex;
-      flex-direction:column;
-      min-height:260px;
-      position:relative;
-    }
+/* Grid */
+.grid{
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(4,1fr);
+}
 
-    .card__media{
-      height:120px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-bottom:1px solid var(--cl-border);
-      background:#F8FAFC;
+@media(max-width:1100px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:800px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+  .grid{grid-template-columns:1fr}
+}
 
-    }
-    .card__media img{max-height:70px}
+/* Cards */
+.card{
+  background:#fff;
+  border:1px solid var(--cl-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  display:flex;
+  flex-direction:column;
+  min-height:260px;
+  position:relative;
+}
 
-    .card__body{padding:12px 14px}
-    .card__title{margin:0 0 6px;font-size:16.5px}
-    .card__text{color:var(--cl-muted);font-size:14.5px}
+.card__media{
+  height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid var(--cl-border);
+  background:#F8FAFC;
+}
 
-    .card__actions{padding:10px 14px 14px}
+.card__media img{max-height:70px}
 
-    .btn-open{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:6px;
-      background:#0096D6;
-      color:#fff;
-      font-size:13px;
-      font-weight:700;
-    }
+.card__body{padding:12px 14px}
+.card__title{margin:0 0 6px;font-size:16.5px}
+.card__text{color:var(--cl-muted);font-size:14.5px}
 
-    .badge{
-      position:absolute;
-      top:10px;
-      left:10px;
-      padding:3px 8px;
-      font-size:12px;
-      font-weight:700;
-      border-radius:999px;
-      background:#DBEAFE;
-      color:#1E3A8A;
-    }
-    .badge + .badge{top:36px}
+.card__actions{padding:10px 14px 14px}
 
-    .badge--training,
-    .badge--review{
-      background:#FEF3C7;
-      color:#92400E;
-    }
+.btn-open{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:6px;
+  background:#0096D6;
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
 
-    section{padding:26px 0}
-  </style>
-</head>
-
-<body>
-
-<header class="topbar">
-  <div class="container topbar__inner">
-    <div class="brand">
-      <img src="assets/nsw-logo.svg" alt="NSW Government logo">
-      <span>Crown Land Spatial Hub</span>
-    </div>
-    <nav class="nav">
-      <a href="#apps">Applications</a>
-      <a href="#data-catalogue">Data Catalogue</a>
-      <a href="#support">Support</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero__inner container">
-    
-    <h1>Crown Land Spatial HUB</h1>
-    <p>ArcGIS Online Applications, Reporting Tools &amp; Dashboards</p>
-    <p>Accessible with industry or any generic AGOL account</p>
-    <br></br>
-   
-<a href="#apps" class="btn">Browse Applications</a>
-
-<a href="mailto:crown.applications@crownland.nsw.gov.au" class="btn">
-  Contact Support
-</a>
-
-<a href="#data-catalogue" class="btn">
-  Data Catalogue
-</a>
-
-  </div>
-</section>
-
-<main id="apps" class="container">
-  <h2>Operational Applications</h2>
-
-  <div class="grid">
-
-    <!-- ORBiS Training -->
-    <article class="card">
-      <div class="card__media">
-        <img src="assets/icons/OrbisTraining.png" alt="ORBiS">
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">Orbis – Training Database</h3>
-        <p class="card__text">Training APP to capture pests area, weeds area, baiting points, illegal dumping and contamination points on Crown Land.</p>
-      </div>
-      <div class="card__actions">
-        <a class="btn-open" href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175">Open</a>
-      </div>
-      <span class="badge badge--training">Training</span>
-    </article>
-
-    <!-- Orbis Production -->
-    <article class="card">
-      <div class="card__media">
-        <img src="assets/icons/OrbisLogo.png" alt="ORBiS">
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">Orbis – Production</h3>       
-        <p class="card__text">Natural Resource Database APP to capture pests area, weeds area, baiting points, illegal dumping and contamination points on Crown Land.</p>
-
-      </div>
-      <div class="card__actions">
-        <a class="btn-open" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c">Open</a>
-      </div>
-      <span class="badge">Production</span>
-    </article>
-
-    <!-- CLASSIFY -->
-    <article class="card">
-      <div class="card__media">
-        <img src="assets/icons/Classify.png" alt="CLASSIFY">
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">Classify</h3>        
-        <p class="card__text">Crown Land Asset Information System (Classify)</p>
-
-      </div>
-      <div class="card__actions">
-        <a class="btn-open" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00">Open</a>
-      </div>
-      <span class="badge">Production</span>
-    </article>
-
-    <!-- Incendo -->
-    <article class="card">
-      <div class="card__media">
-        <img src="assets/icons/Incendo.png" alt="Incendo">
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">Incendo</h3>    
-      <p class="card__text">Bushfire management system for Crown Land.</p>
-
-      </div>
-      <div class="card__actions">
-        <a class="btn-open" href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3">Open</a>
-      </div>
-      <span class="badge">Production</span>
-    </article>
-
-    <article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="MIDO">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">MIDO</h3>
-    <p class="card__text">View and manage the spatial representation of the expansive licence that MIDO has with Crown Lands.</p>
-
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/dc80b3fd9956444aafc7b9b58f433128">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Crown Land Native Title">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Crown Land Native Title</h3>
-    <p class="card__text">Crown land native title status search app</p>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/ffdfeecea2604187a1231a5e5da7ffbd">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="CrownView Mini">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">CrownView Mini</h3>
-    <p class="card__text">CrownView Mini provides DPE staff access to Crown land spatial data.</p>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/06d2089e915d4d3c824a959d7e4d2ae9">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Council Crown Land Manager Reserves Portal">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Council Crown Land Manager Reserves Portal</h3>
-    <p class="card__text">Check the Council CLM Reserves Portal for all reserves for which council is the appointed Crown land manager (CLM) and consider the classifications and initial categorisations for each reserve. Confirm community land classification of Crown reserves or seek operational classification if appropriate.</p>
-    
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/99ed087615f24ab8aacc619ef3507155/">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Crownland Conservation Tool">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Crownland Conservation Tool</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_CONSERVATION_TOOL/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Crown Land Emergency Response Toolkit">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Crown Land Emergency Response Toolkit</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_EMERGENCY_RESPONSE/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="2025 Client Enquiries">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">2025 Client Enquiries</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_CLIENT_ENQUIRIES_2025/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Crown Land Disaster Recovery Dashboard">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Crown Land Disaster Recovery Dashboard</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_DISASTER_RECOVERY/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Crown Land Housing Assessment Dashboard">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Crown Land Housing Assessment Dashboard</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_HOUSING_ASSESSMENT/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Contamination by Office Dashboard">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Contamination by Office Dashboard</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_CONTAMINATION_OFFICE/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Contamination by Region Dashboard">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Contamination by Region Dashboard</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_CONTAMINATION_REGION/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-
-<article class="card">
-  <div class="card__media">
-    <img src="assets/icons/review.jpg" alt="Illegal Dumping Dashboard">
-  </div>
-  <div class="card__body">
-    <h3 class="card__title">Illegal Dumping Dashboard</h3>
-  </div>
-  <div class="card__actions">
-    <a class="btn-open" href="https://trade.hub.arcgis.com/apps/REVIEW_ILLEGAL_DUMPING/exploreOpen">Open</a>
-  </div>
-  <span class="badge">Production</span>
-  <span class="badge badge--review">Under Review</span>
-</article>
-   
-  </div>
-</main>
-
-<section id="data-catalogue" class="container">
-  <h2>Data Catalogue</h2>
-  <p>Coming soon.</p>
-</section>
-
-<section id="support" class="container">
-  <h2>Support</h2>
-  <p>Contact the Spatial Services team for assistance @ crown.applications@crownland.nsw.gov.au  
-</a></p>
-</section>
-
-</body>
-</html>
+/* Badges */
