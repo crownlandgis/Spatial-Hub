@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en-AU">
 <head>
@@ -151,3 +152,58 @@ a{text-decoration:none}
 }
 
 /* Badges */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:3px 8px;
+  font-size:12px;
+  font-weight:700;
+  border-radius:999px;
+  background:#DBEAFE;
+  color:#1E3A8A;
+}
+
+.badge + .badge{top:36px}
+
+.badge--training,
+.badge--review{
+  background:#FEF3C7;
+  color:#92400E;
+}
+
+section{padding:26px 0}
+
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+    <div class="brand">
+      <img src="assets/nsw-logo.svg" alt="NSW Government logo">
+      <span>Crown Land Spatial Hub</span>
+    </div>
+    <nav class="nav">
+      <a href="#apps">Applications</a>
+      <a href="#data-catalogue">Data Catalogue</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__inner container">
+    <h1>Crown Land Spatial HUB</h1>
+    <p>ArcGIS Online Applications, Reporting Tools &amp; Dashboards</p>
+    <p>Accessible with industry or any generic AGOL account</p>
+    <br>
+
+    <a href="#apps" class="btn">Browse Applications</a>
+    <a href="mailto:crown.applications@crownland.nsw.gov.au" class="btn">Contact Support</a>
+    <a href="#data-catalogue" class="btn">Data Catalogue</a>
+  </div>
+</section>
+
+<!-- PAGE CONTENT CONTINUES UNCHANGED -->
