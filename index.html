@@ -125,13 +125,19 @@ a{text-decoration:none}
 }
 
 .card__media{
-  height:120px;
+  height:160px;                 /* increase container height */
   display:flex;
   align-items:center;
   justify-content:center;
   border-bottom:1px solid var(--cl-border);
   background:#F8FAFC;
 }
+
+.card__media img{
+  max-height:110px;             /* increase icon size */
+  width:auto;
+}
+
 
 .card__media img{max-height:70px}
 
