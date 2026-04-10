@@ -160,8 +160,6 @@ a{text-decoration:none}
   color:#fff;
   font-size:13px;
   font-weight:700;
-}
-
 /* Badges */
 .badge{
   position:absolute;
@@ -171,17 +169,29 @@ a{text-decoration:none}
   font-size:12px;
   font-weight:700;
   border-radius:999px;
+}
+
+/* stack multiple badges */
+.badge + .badge{top:36px}
+
+/* Training = Blue */
+.badge--training{
   background:#DBEAFE;
   color:#1E3A8A;
 }
 
-.badge + .badge{top:36px}
+/* Production = Green */
+.badge--production{
+  background:#DCFCE7;
+  color:#14532D;
+}
 
-.badge--training,
+/* Under Review = Yellow */
 .badge--review{
   background:#FEF3C7;
   color:#92400E;
 }
+
 
 section{padding:26px 0}
 
