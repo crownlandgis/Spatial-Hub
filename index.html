@@ -116,6 +116,12 @@
       margin-right: 10px;
     }
 
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* Grid */
     .grid {
       display: grid;
@@ -202,6 +208,16 @@
       font-weight: 700;
     }
 
+    .card__badges {
+      /* position: absolute; */
+      /* top: 10px; */
+      /* left: 10px; */
+      /* display: flex; */
+      /* flex-direction: row; */
+      /* justify-content: space-between; */
+      /* align-items: center; */
+    }
+
     /* Badges */
     .badge {
       position: absolute;
@@ -217,11 +233,6 @@
       color: #14532D;
     }
 
-    /* stack multiple badges */
-    .badge+.badge {
-      top: 36px;
-    }
-
     /* Training = Blue */
     .badge--training {
       background: #DBEAFE;
@@ -230,11 +241,17 @@
 
     /* Under Review = Yellow */
     .badge--review {
+      top: 10px;
+      right: 10px;
+      left: auto;
       background: #FEF3C7;
       color: #92400E;
     }
 
     .badge--replacement {
+      top: 10px;
+      right: 10px;
+      left: auto;
       background: #002664;
       color: white;
     }
@@ -268,7 +285,6 @@
           Contact Support
         </a>
 
-
       </nav>
     </div>
   </header>
@@ -299,185 +315,204 @@
   <main id="apps" class="container">
     <h2>Operational Applications</h2>
 
-    <div class="grid">
+    <div class="sections">
+      <div class="grid">
 
-      <!-- ORBiS Training -->
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/OrbisTraining.png" alt="ORBiS">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Orbis – Training Database</h3>
-          <p class="card__text">Training application to capture pests area, weeds area, baiting points, illegal dumping
-            and contamination points on Crown Land.</p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open"
-            href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175">Open</a>
-        </div>
-        <span class="badge badge--training">Training</span>
-      </article>
-
-      <!-- Orbis Production -->
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/OrbisLogo.png" alt="ORBiS">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Orbis – Production</h3>
-          <p class="card__text">Natural Resource Database application to capture pests area, weeds area, baiting points,
-            illegal dumping and contamination points on Crown Land.</p>
-
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c">Open</a>
-        </div>
-        <span class="badge">Production</span>
-      </article>
-
-      <!-- CLASSIFY -->
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/Classify.png" alt="CLASSIFY">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Classify</h3>
-          <p class="card__text">Crown Land Asset Information System (Classify).</p>
-
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00">Open</a>
-        </div>
-        <span class="badge">Production</span>
-      </article>
-
-      <!-- Incendo -->
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/Incendo.png" alt="Incendo">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Incendo</h3>
-          <p class="card__text">Bushfire management system for Crown Land.</p>
-
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3">Open</a>
-        </div>
-        <span class="badge">Production</span>
-      </article>
-
-
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/NT.png" alt="Crown Land Native Title">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Crown Land Native Title</h3>
-          <p class="card__text">Crown Land Native Title status search application.</p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open"
-            href="https://spatialportal.dpie.nsw.gov.au/portal/home/item.html?id=51bebc06f4b745159fb644fac7945123">Open</a>
-        </div>
-        <span class="badge">Production</span>
-      </article>
-
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/CrownView.png" alt="CrownView 4G">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">CrownView 4G</h3>
-          <p class="card__text">CrownView 4G provides DPHI staff access to Crown Land spatial data.</p>
-        </div>
-        <div class="card__actions">
-          <!-- Right now we will not change this , refer this old one now -->
-          <a class="btn-open" href="https://experience.arcgis.com/experience/529ee7498f6c4eeaa1113077fd61402c">Open</a>
-        </div>
-        <span class="badge">Production</span>
+        <!-- ORBiS Training -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/OrbisTraining.png" alt="ORBiS">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Orbis – Training Database</h3>
+            <p class="card__text">Training application to capture pests area, weeds area, baiting points, illegal
+              dumping
+              and contamination points on Crown Land.</p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open"
+              href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=eddb0948c5fc43a19858b188a7bbc175" target="_blank">Open</a>
+          </div>
+          <span class="badge badge--training">Training</span>
           <span class="badge badge--replacement">Replacing</span>
-      </article>
+        </article>
 
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/cclmr.png" alt="Council Crown Land Manager Reserves Portal">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Council Crown Land Manager Reserves Portal</h3>
-          <p class="card__text">Review all council‑managed Crown reserves, assess classifications and initial
-            categorisations, and confirm or seek appropriate land classification.</p>
+        <!-- Orbis Production -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/OrbisLogo.png" alt="ORBiS">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Orbis – Production</h3>
+            <p class="card__text">Natural Resource Database application to capture pests area, weeds area, baiting
+              points,
+              illegal dumping and contamination points on Crown Land.</p>
 
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/99ed087615f24ab8aacc619ef3507155/">Open</a>
-        </div>
-        <span class="badge">Production</span>
-        <span class="badge badge--review">Under Review</span>
-      </article>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/38b542692c2648b7a0c412cf19ab658c" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--replacement">Replacing</span>
+        </article>
 
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/CCT.png" alt="Crownland Conservation Tool">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Crownland Conservation Tool</h3>
-          <p class="card__text">Spatial Viewer to aid assessment of Crown Land in conservation sensitive areas.</p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/e67ea8fb82a248fdbdfa9c6233482dfc">Open</a>
-        </div>
-        <span class="badge">Production</span>
-        <span class="badge badge--review">Under Review</span>
-      </article>
+        <!-- CLASSIFY -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/Classify.png" alt="CLASSIFY">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Classify</h3>
+            <p class="card__text">Crown Land Asset Information System (Classify).</p>
 
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/CERT.png" alt="Crown Land Emergency Response Toolkit">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">Crown Land Emergency Response Toolkit</h3>
-          <p class="card__text">Crown Land flood response tool.</p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/8ed93e21fe014638844fabd756f70260">Open</a>
-        </div>
-        <span class="badge">Production</span>
-        <span class="badge badge--review">Under Review</span>
-      </article>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/c80f31355d984390affce8efc3950c00" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--replacement">Replacing</span>
+        </article>
 
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/2025CE.png" alt="2025 Client Enquiries">
-        </div>
-        <div class="card__body">
-          <h3 class="card__title">2025 Client Enquiries</h3>
-          <p class="card__text">Locations of flood damage assessments and sites that require assessment of flood damage
-            on Crown Land.</p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/084fbdc007d04fff87853603fb48bb31">Open</a>
-        </div>
-        <span class="badge">Production</span>
-        <span class="badge badge--review">Under Review</span>
-      </article>
 
-      <article class="card">
-        <div class="card__media">
-          <img src="assets/icons/Enclosure.png" alt="Business Centre - Enclosure Permit Project">
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/NT.png" alt="Crown Land Native Title">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Crown Land Native Title</h3>
+            <p class="card__text">Crown Land Native Title status search application.</p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open"
+              href="https://spatialportal.dpie.nsw.gov.au/portal/home/item.html?id=51bebc06f4b745159fb644fac7945123" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/CrownView.png" alt="CrownView 4G">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">CrownView 4G</h3>
+            <p class="card__text">CrownView 4G provides DPHI staff access to Crown Land spatial data.</p>
+          </div>
+          <div class="card__actions">
+            <!-- Right now we will not change this , refer this old one now -->
+            <a class="btn-open"
+              href="https://trade.maps.arcgis.com/apps/webappviewer/index.html?id=71b378a3a4e64a51a294ff6bdd6f98f9" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--replacement">Replacing</span>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/CCT.png" alt="Crownland Conservation Tool">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Crownland Conservation Tool</h3>
+            <p class="card__text">Spatial Viewer to aid assessment of Crown Land in conservation sensitive areas.</p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/e67ea8fb82a248fdbdfa9c6233482dfc" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--replacement">Replacing</span>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/CERT.png" alt="Crown Land Emergency Response Toolkit">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Crown Land Emergency Response Toolkit</h3>
+            <p class="card__text">Crown Land flood response tool.</p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/8ed93e21fe014638844fabd756f70260" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--review">Under Review</span>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/2025CE.png" alt="2025 Client Enquiries">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">2025 Client Enquiries</h3>
+            <p class="card__text">Locations of flood damage assessments and sites that require assessment of flood
+              damage
+              on Crown Land.</p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/084fbdc007d04fff87853603fb48bb31" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+          <span class="badge badge--review">Under Review</span>
+        </article>
+
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/Enclosure.png" alt="Business Centre - Enclosure Permit Project">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Business Centre - Enclosure Permit Project</h3>
+            <p class="card__text">Search and simultaneously visualise Enclosure permit accounts in 2 and 3D map windows.
+            </p>
+          </div>
+          <div class="card__actions">
+            <a class="btn-open"
+              href="https://experience.arcgis.com/experience/55e2d642790e49918a89457ff4071563/" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+        </article>
+        <!-- Incendo -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/icons/Incendo.png" alt="Incendo">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Incendo</h3>
+            <p class="card__text">Bushfire management system for Crown Land.</p>
+
+          </div>
+          <div class="card__actions">
+            <a class="btn-open" href="https://trade.hub.arcgis.com/apps/b4e858a564b64279af5c6452b870dab3" target="_blank">Open</a>
+          </div>
+          <span class="badge">Production</span>
+        </article>
+      </div>
+      <hr style="border: none; border-top: 1px solid #ccc; margin: 5px 0;">
+      <div>
+        <div class="grid">
+          <!-- Council Crown Land Manager Reserves Portal -->
+          <article class="card">
+            <div class="card__media">
+              <div class="card__badges">
+                <span class="badge">Production</span>
+                <span class="badge badge--replacement">Replacing</span>
+              </div>
+              <img src="assets/icons/cclmr.png" alt="Council Crown Land Manager Reserves Portal">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Council Crown Land Manager Reserves Portal</h3>
+              <p class="card__text">Review all council‑managed Crown reserves, assess classifications and initial
+                categorisations, and confirm or seek appropriate land classification.</p>
+
+            </div>
+            <div class="card__actions">
+              <a class="btn-open" href="https://trade.hub.arcgis.com/apps/99ed087615f24ab8aacc619ef3507155/" target="_blank">Open</a>
+            </div>
+
+          </article>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">Business Centre - Enclosure Permit Project</h3>
-          <p class="card__text">Search and simultaneously visualise Enclosure permit accounts in 2 and 3D map windows.
-          </p>
-        </div>
-        <div class="card__actions">
-          <a class="btn-open" href="https://experience.arcgis.com/experience/55e2d642790e49918a89457ff4071563/">Open</a>
-        </div>
-        <span class="badge">Production</span>
-      </article>
+      </div>
+    </div>
 
   </main>
+
   <section id="dashboards" class="container">
     <h2>Dashboards</h2>
 
@@ -493,7 +528,7 @@
           <p class="card__text">Dashboard On Contamination. Filtered on Crown Land Office.</p>
         </div>
         <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/2efb6ece597648ee9fc6e8ae0bb98143">Open</a>
+          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/2efb6ece597648ee9fc6e8ae0bb98143" target="_blank">Open</a>
         </div>
         <span class="badge">Production</span>
         <span class="badge badge--review">Under Review</span>
@@ -509,7 +544,7 @@
           <p class="card__text">Dashboard on contamination. Filtered by region.</p>
         </div>
         <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/cc9d7a8e3e8d473f816ba0810b51ba41">Open</a>
+          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/cc9d7a8e3e8d473f816ba0810b51ba41" target="_blank">Open</a>
         </div>
         <span class="badge">Production</span>
         <span class="badge badge--review">Under Review</span>
@@ -525,7 +560,7 @@
           <p class="card__text">This is a dashboard for Crown Land Track / Trail Assets.</p>
         </div>
         <div class="card__actions">
-          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/c61995380f9547e4b723b9dda29affce">Open</a>
+          <a class="btn-open" href="https://trade.hub.arcgis.com/apps/c61995380f9547e4b723b9dda29affce" target="_blank">Open</a>
         </div>
         <span class="badge">Production</span>
         <span class="badge badge--review">Under Review</span>
